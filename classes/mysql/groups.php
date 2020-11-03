@@ -72,7 +72,7 @@ class CRSGGroups
 			DISTINCT
 				GP.*
 			FROM
-				b_collected_grupper_groups GP
+				b_kit_grupper_groups GP
 			".$sFilter.$sOrder;
 
 		return $DB->Query($strSql, false, "File: ".__FILE__."<br>Line: ".__LINE__);
@@ -90,7 +90,7 @@ class CRSGGroups
 
 		$DB->StartTransaction();
 
-		$res = $DB->Query("DELETE FROM b_collected_grupper_groups WHERE ID=".$ID, false, "File: ".__FILE__."<br>Line: ".__LINE__);
+		$res = $DB->Query("DELETE FROM b_kit_grupper_groups WHERE ID=".$ID, false, "File: ".__FILE__."<br>Line: ".__LINE__);
 		if($res)
 		{
 			CRSGBinds::DeleteBindsForGroupID($ID);
@@ -112,7 +112,7 @@ class CRSGGroups
 		else
 			$arFields["CODE"] = Cutil::translit($arFields["NAME"],"ru",$arParams);
 		
-		$ID = $DB->Add("b_collected_grupper_groups", $arFields);
+		$ID = $DB->Add("b_kit_grupper_groups", $arFields);
 		if(IntVal($ID)>0)
 			return $ID;
 		else
@@ -133,10 +133,10 @@ class CRSGGroups
 		else
 			$arFields["CODE"] = Cutil::translit($arFields["NAME"],"ru",$arParams);
 		
-		$strUpdate = $DB->PrepareUpdate("b_collected_grupper_groups", $arFields);
+		$strUpdate = $DB->PrepareUpdate("b_kit_grupper_groups", $arFields);
 		if($strUpdate!="")
 		{
-			$strSql = "UPDATE b_collected_grupper_groups SET ".$strUpdate." WHERE ID=".$ID;
+			$strSql = "UPDATE b_kit_grupper_groups SET ".$strUpdate." WHERE ID=".$ID;
 			$DB->Query($strSql, false, "File: ".__FILE__."<br>Line: ".__LINE__);
 			return $ID;
 		} else {

@@ -57,7 +57,7 @@ class CRSGBinds
 			SELECT
 				GB.*
 			FROM
-				b_collected_grupper_binds GB
+				b_kit_grupper_binds GB
 			".$sFilter.$sOrder;
 
 		return $DB->Query($strSql, false, "File: ".__FILE__."<br>Line: ".__LINE__);
@@ -75,7 +75,7 @@ class CRSGBinds
 
 		$DB->StartTransaction();
 
-		$res = $DB->Query("DELETE FROM b_collected_grupper_binds WHERE ID=".$ID, false, "File: ".__FILE__."<br>Line: ".__LINE__);
+		$res = $DB->Query("DELETE FROM b_kit_grupper_binds WHERE ID=".$ID, false, "File: ".__FILE__."<br>Line: ".__LINE__);
 		if($res)
 		{
 			$DB->Commit();
@@ -90,7 +90,7 @@ class CRSGBinds
 	{
 		global $DB;
 		
-		$ID = $DB->Add("b_collected_grupper_binds", $arFields);
+		$ID = $DB->Add("b_kit_grupper_binds", $arFields);
 		if(IntVal($ID)>0)
 			return $ID;
 		else
@@ -105,10 +105,10 @@ class CRSGBinds
 		if(isset($arFields["ID"]))
 			unset($arFields["ID"]);
 		
-		$strUpdate = $DB->PrepareUpdate("b_collected_grupper_binds", $arFields);
+		$strUpdate = $DB->PrepareUpdate("b_kit_grupper_binds", $arFields);
 		if($strUpdate!="")
 		{
-			$strSql = "UPDATE b_collected_grupper_binds SET ".$strUpdate." WHERE ID=".$ID;
+			$strSql = "UPDATE b_kit_grupper_binds SET ".$strUpdate." WHERE ID=".$ID;
 			$DB->Query($strSql, false, "File: ".__FILE__."<br>Line: ".__LINE__);
 			return $ID;
 		} else {

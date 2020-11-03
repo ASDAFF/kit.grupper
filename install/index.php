@@ -2,9 +2,9 @@
 global $MESS;
 IncludeModuleLangFile(__FILE__);
 
-Class collected_grupper extends CModule
+Class kit_grupper extends CModule
 {
-    var $MODULE_ID = "collected.grupper";
+    var $MODULE_ID = "kit.grupper";
 	var $MODULE_VERSION;
 	var $MODULE_VERSION_DATE;
 	var $MODULE_NAME;
@@ -12,7 +12,7 @@ Class collected_grupper extends CModule
 	var $MODULE_CSS;
 	var $MODULE_GROUP_RIGHTS = "Y";
 
-	function collected_grupper()
+	function kit_grupper()
 	{
 		$arModuleVersion = array();
 
@@ -38,15 +38,15 @@ Class collected_grupper extends CModule
 	function InstallDB()
 	{
 		global $DB, $DBType, $APPLICATION;
-		RegisterModule("collected.grupper");
-		$DB->RunSQLBatch($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/collected.grupper/install/db/".$DBType."/install.sql");
+		RegisterModule("kit.grupper");
+		$DB->RunSQLBatch($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/kit.grupper/install/db/".$DBType."/install.sql");
 		return TRUE;
 	}
 
 	function InstallEvents()
 	{
-		RegisterModuleDependences("main", "OnBuildGlobalMenu", "collected.grupper", "CRSGrupper", "HandlerOnBuildGlobalMenu", 100000);
-		RegisterModuleDependences("main", "OnAdminContextMenuShow", "collected.grupper", "CRSGrupper", "HandlerOnAdminContextMenuShow", 100000);
+		RegisterModuleDependences("main", "OnBuildGlobalMenu", "kit.grupper", "CRSGrupper", "HandlerOnBuildGlobalMenu", 100000);
+		RegisterModuleDependences("main", "OnAdminContextMenuShow", "kit.grupper", "CRSGrupper", "HandlerOnAdminContextMenuShow", 100000);
 		return TRUE;
 	}
 
@@ -57,8 +57,8 @@ Class collected_grupper extends CModule
 
 	function InstallFiles()
 	{
-		CopyDirFiles($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/collected.grupper/install/components", $_SERVER["DOCUMENT_ROOT"]."/bitrix/components", true, true);
-		CopyDirFiles($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/collected.grupper/install/admin", $_SERVER["DOCUMENT_ROOT"]."/bitrix/admin", true, true);
+		CopyDirFiles($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/kit.grupper/install/components", $_SERVER["DOCUMENT_ROOT"]."/bitrix/components", true, true);
+		CopyDirFiles($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/kit.grupper/install/admin", $_SERVER["DOCUMENT_ROOT"]."/bitrix/admin", true, true);
 		return TRUE;
 	}
 
@@ -71,15 +71,15 @@ Class collected_grupper extends CModule
 	function UnInstallDB()
 	{
 		global $DB, $DBType, $APPLICATION;
-		$DB->RunSQLBatch($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/collected.grupper/install/db/".$DBType."/uninstall.sql");
-		UnRegisterModule("collected.grupper");
+		$DB->RunSQLBatch($_SERVER['DOCUMENT_ROOT']."/bitrix/modules/kit.grupper/install/db/".$DBType."/uninstall.sql");
+		UnRegisterModule("kit.grupper");
 		return TRUE;
 	}
 
 	function UnInstallEvents()
 	{
-		UnRegisterModuleDependences("main", "OnBuildGlobalMenu", "collected.grupper", "CRSGrupper", "HandlerOnBuildGlobalMenu");
-		UnRegisterModuleDependences("main", "OnAdminContextMenuShow", "collected.grupper", "CRSGrupper", "HandlerOnAdminContextMenuShow");
+		UnRegisterModuleDependences("main", "OnBuildGlobalMenu", "kit.grupper", "CRSGrupper", "HandlerOnBuildGlobalMenu");
+		UnRegisterModuleDependences("main", "OnAdminContextMenuShow", "kit.grupper", "CRSGrupper", "HandlerOnAdminContextMenuShow");
 		return TRUE;
 	}
 
@@ -90,9 +90,9 @@ Class collected_grupper extends CModule
 
 	function UnInstallFiles()
 	{
-		DeleteDirFilesEx("/bitrix/admin/collected_grupper.php");
-		DeleteDirFilesEx("/bitrix/admin/collected_grupper_edit.php");
-		DeleteDirFilesEx("/bitrix/admin/collected_grupper_popup.php");
+		DeleteDirFilesEx("/bitrix/admin/kit_grupper.php");
+		DeleteDirFilesEx("/bitrix/admin/kit_grupper_edit.php");
+		DeleteDirFilesEx("/bitrix/admin/kit_grupper_popup.php");
 		return TRUE;
 	}
 
@@ -109,7 +109,7 @@ Class collected_grupper extends CModule
 		$keyGoodOptions = $this->InstallOptions();
 		$keyGoodFiles = $this->InstallFiles();
 		$keyGoodPublic = $this->InstallPublic();
-		$APPLICATION->IncludeAdminFile(GetMessage("SPER_INSTALL_TITLE"), $_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/collected.grupper/install/install.php");
+		$APPLICATION->IncludeAdminFile(GetMessage("SPER_INSTALL_TITLE"), $_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/kit.grupper/install/install.php");
     }
 
     function DoUninstall()
@@ -120,7 +120,7 @@ Class collected_grupper extends CModule
 		$keyGoodOptions = $this->UnInstallOptions();
 		$keyGoodDB = $this->UnInstallDB();
 		$keyGoodPublic = $this->UnInstallPublic();
-		$APPLICATION->IncludeAdminFile(GetMessage("SPER_UNINSTALL_TITLE"), $_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/collected.grupper/install/uninstall.php");
+		$APPLICATION->IncludeAdminFile(GetMessage("SPER_UNINSTALL_TITLE"), $_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/kit.grupper/install/uninstall.php");
     }
 }
 ?>

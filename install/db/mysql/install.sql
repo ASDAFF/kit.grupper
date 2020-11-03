@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS b_collected_grupper_groups
+CREATE TABLE IF NOT EXISTS b_kit_grupper_groups
 (
 	ID int(11) NOT NULL AUTO_INCREMENT,
 	XML_ID varchar(255) NULL,
@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS b_collected_grupper_groups
 	PRIMARY KEY (ID)
 );
 
-CREATE TABLE IF NOT EXISTS b_collected_grupper_binds
+CREATE TABLE IF NOT EXISTS b_kit_grupper_binds
 (
 	ID int(11) NOT NULL AUTO_INCREMENT,
 	IBLOCK_PROPERTY_ID int(11) NOT NULL,

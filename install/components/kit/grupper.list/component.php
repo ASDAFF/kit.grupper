@@ -1,6 +1,6 @@
 <?if(!defined("B_PROLOG_INCLUDED")||B_PROLOG_INCLUDED!==true)die();
 
-if(!CModule::IncludeModule('collected.grupper'))
+if(!CModule::IncludeModule('kit.grupper'))
 {
 	ShowError( GetMessage("COLLECT_MSG_ERROR_NO_MODULE") );
 	return;

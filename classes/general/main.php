@@ -12,9 +12,9 @@ class CRSGrupper
 				$newMenu = array(
 					"text" => GetMessage("MENU_PENETRATION_TEXT"),
 					"title" => GetMessage("MENU_PENETRATION_TITLE"),
-					"url" => "collected_grupper.php?lang=".LANGUAGE_ID,
+					"url" => "kit_grupper.php?lang=".LANGUAGE_ID,
 					"more_url" => array(
-						"collected_grupper_edit.php",
+						"kit_grupper_edit.php",
 					),
 				);
 				$aModuleMenu[$key1]["items"][] = $newMenu;
@@ -32,7 +32,7 @@ class CRSGrupper
 		{
 			$popupLink = $APPLICATION->GetPopupLink(
 				array(
-					"URL" => "/bitrix/admin/collected_grupper_popup.php?lang=".LANG."&IBLOCK_ID=".$IBLOCK_ID."&bxpublic=Y",
+					"URL" => "/bitrix/admin/kit_grupper_popup.php?lang=".LANG."&IBLOCK_ID=".$IBLOCK_ID."&bxpublic=Y",
 					"PARAMS" => array(
 						"width" => 500,
 						"height" => 400,

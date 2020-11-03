@@ -1,1 +1,1 @@
-<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/collected.grupper/admin/grupper.php");?>
+<?require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/modules/kit.grupper/admin/grupper.php");?>
